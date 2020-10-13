@@ -48,8 +48,10 @@ parser.add_argument("--device", type=int, default = 1, help = "device used to co
 parser.add_argument("--use_trigram_block", default=False, action='store_true', help="Whether use trigram block")
 parser.add_argument("--use_newloss",default=False, action='store_true',help="Whether use new loss to train")
 parser.add_argument("--use_rl",default=False, action='store_true',help="Whether use rl to train")
-parser.add_argument("--beta",type=float, default=0.99,help="Beta used in the new loss/rl")
+parser.add_argument("--use_mmr",default=False, action='store_true',help="Whether use mmr to evaluate")
+parser.add_argument("--beta",type=float, default=0.30,help="Beta used in the new loss/rl")
 parser.add_argument("--lambd",type=float, default=0.6,help="Lambd used in the rl")
+parser.add_argument("--gamma",type=float, default=0.99,help="Lambd used in the rl")
 parser.add_argument("--use_neusum",default=False, action='store_true',help="Whether use neusum decoder")
 
 
@@ -137,7 +139,7 @@ elif args.model =='ac_neusum':
 if args.use_newloss:
 	model_name+='_newloss_beta=%.2f'%(args.beta)
 if args.use_rl:
-	model_name+='_mmr+_lambd=%.2f_beta=%.2f'%(args.lambd,args.beta)
+	model_name+='_mmr+_lambd=%.2f_gamma=%.2f'%(args.lambd,args.gamma)
 
 # set the directory to store models, make new if not exists
 if not os.path.exists(args.modelpath):
@@ -179,7 +181,7 @@ for i,data in enumerate(train_dataloader):
 	if args.use_newloss:
 		l,num_data = train_seq2seq_batch_newloss(data,model,optimizer,pos_weight,device,beta=args.beta)
 	elif args.use_rl:
-		l,num_data = train_seq2seq_batch_rl(data, model, optimizer,pos_weight,device,lamb=args.lambd,beta=args.beta)
+		l,num_data = train_seq2seq_batch_rl(data, model, optimizer,pos_weight,device,lamb=args.lambd,gamma=args.gamma)
 	elif args.model=='ac_neusum':
 		l,num_data = train_seq2seq_batch_neusum(data, model, optimizer,pos_weight,device)
 	else:

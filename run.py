@@ -49,7 +49,7 @@ def train_seq2seq_batch(data_batch, model, optimizer,pos_weight,device):
 	return l,total_data
 
 
-def train_seq2seq_batch_rl(data_batch, model, optimizer,pos_weight,device,lamb = 0.1,beta=0.7):
+def train_seq2seq_batch_rl(data_batch, model, optimizer,pos_weight,device,lamb = 0.1,gamma=0.7):
 	
 	sigmoid = torch.nn.Sigmoid()
 	document = data_batch['document']
@@ -94,7 +94,7 @@ def train_seq2seq_batch_rl(data_batch, model, optimizer,pos_weight,device,lamb =
 	loss_ce = F.binary_cross_entropy_with_logits(out,label,weight = mask,reduction='sum',pos_weight=pos_weight)
 	mask = mask*reward
 	loss_rl = F.binary_cross_entropy_with_logits(out,rl_label,weight = mask,reduction='sum',pos_weight=pos_weight)
-	loss = (1-beta)*loss_ce+beta*loss_rl
+	loss = (1-gamma)*loss_ce+gamma*loss_rl
 
 	model.zero_grad()
 	loss.backward()

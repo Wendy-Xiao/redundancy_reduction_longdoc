@@ -41,8 +41,9 @@ parser.add_argument("--use_trigram_block", default=False, action='store_true', h
 parser.add_argument("--use_mmr",default=False, action='store_true',help="Whether use mmr-select")
 parser.add_argument("--use_rl",default=False, action='store_true',help="Whether use mmr-select+")
 parser.add_argument("--use_newloss",default=False, action='store_true',help="Whether use new loss to train")
-parser.add_argument("--beta",type=float, default=0.99,help="Beta used in the new loss/rl")
-parser.add_argument("--lambd",type=float, default=0.6,help="Lambda used in mmr")
+parser.add_argument("--beta",type=float, default=0.3,help="Beta used in the new loss")
+parser.add_argument("--lambd",type=float, default=0.6,help="Lambda used in mmr-select/+")
+parser.add_argument("--gamma",type=float, default=0.99,help="Gamma used in the mmr-select+")
 
 # For evaluation
 parser.add_argument("--device", type=int, default = 3, help = "device used to compute")
@@ -116,7 +117,7 @@ elif args.model =='ac_neusum':
 if args.use_newloss:
     model_name+='_newloss_beta=%.2f'%(args.beta)
 if args.use_rl:
-    model_name+='_mmr+_lambd=%.2f_beta=%.2f'%(args.lambd,args.beta)
+    model_name+='_mmr+_lambd=%.2f_gamma=%.2f'%(args.lambd,args.gamma)
 
 print(model_name)
 
