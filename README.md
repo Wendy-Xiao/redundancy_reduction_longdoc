@@ -4,7 +4,7 @@ This is the official code for the paper ['Systematically Exploring Redundancy Re
 In this paper, we systematically explored ways for redundancy reduction for extractive summarization on long documents.
 
 ## Installation
-Make sure you have `python 3.6` and `pytorch` installed.
+Make sure you have `python 3` and `pytorch` installed.
 
 First need to install the tool [rouge_papier_v2](https://github.com/Wendy-Xiao/Extsumm_local_global_context/tree/master/rouge_papier_v2).  
 ```
