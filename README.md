@@ -38,9 +38,9 @@ For different models, you need to add different arguments seeing below:
 
 5. ExtSumLG + Trigram Block `--model ac --use_trigram_block`
 
-6. ExtSumLG + MMR-Select (lambda=0.6) `--model ac --use_mmr --lambd 0.6`
+6. ExtSumLG + MMR-Select ($`\lambda =0.6`$) `--model ac --use_mmr --lambd 0.6`
 
-7. ExtSumLG + MMR-Select+ (lambda=0.6, gamma=0.99) `--model ac --use_rl --use_mmr --lambd 0.6 --gamma 0.99`
+7. ExtSumLG + MMR-Select+ (lambda=0.6, $`\gamma =0.99`$) `--model ac --use_rl --use_mmr --lambd 0.6 --gamma 0.99`
 
 
 
