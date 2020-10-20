@@ -17,7 +17,7 @@ Other dependencies needed: `numpy`, `pandas`, `nltk->\[word_tokenizer,stopwords\
 ## Data and Trained Models
 We do the experiments on two scientific paper datasets, Pubmed and arXiv, and you can find the preprocessed data [here]().
 
-The trained models that we showed in the paper is [here]().
+The trained models that we showed in the paper is [here](https://drive.google.com/drive/folders/15XO7ycEk0xZC0xznQwzLGnoWFjgJbEjF?usp=sharing).
 
 ## Evaluation
 
