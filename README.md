@@ -15,7 +15,7 @@ python setup.py install.
 Other dependencies needed: `numpy`, `pandas`, `nltk->\[word_tokenizer,stopwords\]`
 
 ## Data and Trained Models
-We do the experiments on two scientific paper datasets, Pubmed and arXiv, and you can find the preprocessed data [here]().
+We do the experiments on two scientific paper datasets, [Pubmed](https://drive.google.com/file/d/1Iu_2sBxRy5oQWWyisnZn59HnggPVr5XX/view?usp=sharing) and [arXiv](https://drive.google.com/file/d/1fdScmSGT0E0se0dkk7stZRluIE3y-XcZ/view?usp=sharing).
 
 The trained models that we showed in the paper is [here](https://drive.google.com/drive/folders/15XO7ycEk0xZC0xznQwzLGnoWFjgJbEjF?usp=sharing).
 
